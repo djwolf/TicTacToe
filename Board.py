@@ -1,7 +1,8 @@
 from __future__ import print_function
 
 class Board(object):
-    boardArr = [['a' for i in range(3)] for k in range(3)]
+    fillerChar = '_'
+    boardArr = [['_' for i in range(3)] for k in range(3)]
     
     def __init__(self):
         print ("class initialized. printing board")
@@ -57,3 +58,10 @@ class Board(object):
                 else:
                     return [True, 2]
         return [False,-1]
+    
+    def checkDraw(self):
+        for i in range(0,3):
+            for k in range(0,3):
+                if (self.boardArr[i][k] == self.fillerChar):
+                    return False
+        return True
